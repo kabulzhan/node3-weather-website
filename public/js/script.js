@@ -1,4 +1,3 @@
-console.log("Client side javascript file is loaded")
 const p1 = document.querySelector("#message-1");
 const p2 = document.querySelector("#message-2");
 
