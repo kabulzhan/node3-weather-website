@@ -18,15 +18,17 @@ function weatherData(latitude, longitude, callback) {
     request({ url, json: true }, (error, {body}) => {
         if (error) console.log("Unable to get the weather data");
         else {
+            console.log(body);
             const data = {
             result: true,
             location: body.location.name + ", " + body.location.country,
             local_time: body.location.localtime,
             description: body.current.weather_descriptions[0] + ". The temperature was observed at " + localObservationTime(body.location.utc_offset, body.current.observation_time)
             + " local time. It was " + body.current.temperature + " degrees Celsius. It felt like "
-            + body.current.feelslike + " degrees Celsius."
+            + body.current.feelslike + " degrees Celsius.",
+            humidity: body.current.humidity,
+            windspeed: body.current.wind_speed
             }
-            localObservationTime(body.location.utc_offset, body.current.observation_time);
             callback(undefined, data);
         }
     })
