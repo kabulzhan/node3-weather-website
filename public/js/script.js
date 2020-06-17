@@ -18,7 +18,7 @@ document.querySelector("form").addEventListener("submit", (event)=>{
         console.log(data);
         p1.innerHTML = "Location: " + data.location + "<div>Local time: " + data.local_time + "</div>";
         p1.style.color = "black";
-        p2.textContent = data.description;
+        p2.innerHTML = data.description;
     });
 })
 
